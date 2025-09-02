@@ -29,6 +29,8 @@ async function generateCaption(base64ImageFile) {
       Your caption should be short and concise.
       You use hashtags and emojis in the caption.
       `
+    
+
     }
     
   });

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import api from "../../api";
+import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+export default function Login({ onLogin }) {
   const [form, setForm] = useState({ username: "", password: "" });
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -14,7 +16,8 @@ export default function Login() {
     try {
       const res = await api.post("/api/auth/login", form);
       setMessage(res.data.message + " ✅");
-      console.log("User:", res.data.user);
+      onLogin(res.data.user); // 👈 user ko App state me save karna
+      navigate("/upload");    // 👈 login ke baad Upload page pe bhejna
     } catch (err) {
       setMessage(err.response?.data?.message || "Error logging in");
     }

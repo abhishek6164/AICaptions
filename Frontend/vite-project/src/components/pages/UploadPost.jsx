@@ -22,9 +22,8 @@ export default function UploadPost() {
 
     try {
       setLoading(true);
-      const res = await api.post("/api/posts", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      // Let the browser set the Content-Type (including the multipart boundary)
+      const res = await api.post("/api/posts", formData);
 
       setCaption(res.data.post.caption);
       setPreview(res.data.post.image); // backend ka uploaded image url

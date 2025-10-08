@@ -2,7 +2,7 @@ require('dotenv').config()
 const {
   connect
 } = require('mongoose')
-const app = require('./src/App.js')
+const app = require('./src/app.js')
 const connectDB = require('./src/db/db')
 
 connectDB()

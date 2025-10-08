@@ -1,20 +1,22 @@
 const mongoose = require("mongoose")
-const { router } = require("../App")
+const {
+    router
+} = require("../app")
 
 const userSchema = new mongoose.Schema({
-    username:{
-        type:String,
-        unique:true,
-        required:true
+    username: {
+        type: String,
+        unique: true,
+        required: true
     },
-    password:{
-        type:String,
-        required:true
+    password: {
+        type: String,
+        required: true
     }
 })
 
- 
 
-const userModel = mongoose.model("User",userSchema)
 
-module.exports= userModel
+const userModel = mongoose.model("User", userSchema)
+
+module.exports = userModel

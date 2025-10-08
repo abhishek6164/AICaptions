@@ -4,18 +4,17 @@ const postRoutes = require('./routes/post.routes')
 const cookieParser = require('cookie-parser')
 const cors = require('cors');
 
-
 const app = express()
 app.use(cookieParser())
 app.use(express.json())
 
 // middleware
 app.use(cors({
-  origin: "http://localhost:5173",   // 👈 frontend origin
+  origin: "http://localhost:5173",
   credentials: true
 }));
 
 app.use('/api/auth', authRoutes)
 app.use('/api/posts', postRoutes)
 
-module.exports = App;s
+module.exports = app; // ✅ correct export

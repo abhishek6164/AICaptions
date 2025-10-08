@@ -18,4 +18,4 @@ app.use(cors({
 app.use('/api/auth', authRoutes)
 app.use('/api/posts', postRoutes)
 
-module.exports = app;
+module.exports = App;s

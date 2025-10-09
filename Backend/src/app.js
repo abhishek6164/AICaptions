@@ -8,15 +8,17 @@ const app = express()
 app.use(cookieParser())
 app.use(express.json())
 
-// middleware
+// CORS config
 app.use(cors({
-  origin: ["https://aicaptions-frontend.onrender.com",
-    "http://localhost:5173"
+  origin: [
+    "https://aicaptions-frontend.onrender.com",
+    "http://localhost:5173" // dev ke liye
   ],
-  credentials: true
+  credentials: true, // cookie send karne ke liye must
 }));
 
+// Routes
 app.use('/api/auth', authRoutes)
 app.use('/api/posts', postRoutes)
 
-module.exports = app; // ✅ correct export
+module.exports = app;
